@@ -44,6 +44,9 @@ gem "thruster", require: false
 # traditional one-line-per-event format
 gem "lograge"
 
+# connect to salesforce
+gem "restforce", "~> 8.0.0"
+
 # View Component is use to manage
 # and test complex view logic
 gem "view_component"
@@ -76,4 +79,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
