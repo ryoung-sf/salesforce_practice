@@ -7,6 +7,10 @@ class SalesforceService
     client.query("select Id, Name from Opportunity")
   end
 
+  def get_object_columns(object_name:)
+    client.describe(object_name).fields.map(&:name)
+  end
+
   def self.health
     new.client.query("select Name from User").count > 0
   rescue StandardError => e
