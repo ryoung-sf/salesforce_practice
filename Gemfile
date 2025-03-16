@@ -44,9 +44,15 @@ gem "thruster", require: false
 # traditional one-line-per-event format
 gem "lograge"
 
+# connect to salesforce
+gem "restforce", "~> 8.0.0"
+
 # View Component is use to manage
 # and test complex view logic
 gem "view_component"
+
+# Faraday and Zeitwerk are dependencies of the ruby_llm gem
+gem "ruby_llm"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -76,4 +82,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
