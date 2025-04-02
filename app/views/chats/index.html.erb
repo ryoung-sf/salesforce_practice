@@ -1,0 +1,13 @@
+<div>
+  <h1 class="font-bold text-4xl">Chats#index</h1>
+  <p>Find me in app/views/chats/index.html.erb</p>
+  <%= current_user.email %>
+  <% @chats.each do |chat| %>
+    <%= next if chat.messages.first.nil? %>
+    <div class="bg-gray-200 rounded-lg m-8 text-black p-4">
+      <%= link_to chat.messages.first.content, chat_path(chat) %>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "New Chat", new_chat_path %>

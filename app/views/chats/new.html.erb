@@ -1,0 +1,9 @@
+<div>
+  <h1 class="font-bold text-4xl">Chats#new</h1>
+  <p>Find me in app/views/chats/new.html.erb</p>
+  <%= form_for @chat do |f| %>
+    <%= f.label :model_id, "Model Name" %>
+    <%= f.select :model_id, @anthropic_models, { include_blank: true } %>
+    <%= f.submit %>
+  <% end %>
+</div>
