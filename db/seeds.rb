@@ -1,9 +1,17 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+if !Rails.env.development?
+  puts "[ db/seeds.rb ] Seed data is for development only, " +
+        "not for #{Rails.env} environment."
+  exit 0
+end
+
+require "factory_bot_rails"
+
+User.destroy_all
+
+puts "[ db/seeds.rb ] Creating users..."
+FactoryBot.create(:user, email: "test_user@gmail.com", password: "password")
+5.times do |i|
+  FactoryBot.create(:user, email: "test_user_#{i}@gmail.com", password: "password_#{i}")
+end
+
+puts "[ db/seeds.rb ] Done!"
